@@ -9,6 +9,7 @@ example:
 calling 2 URLs:
 
 URI_1=https://api.nomics.com/v1/currencies/ticker?key=2018-09-demo-dont-deploy-b69315e440beb145&ids=BTC,ETH&interval=1h&convert=USD
+
 URI_2=https://api.nomics.com/v1/currencies/ticker?key=2018-09-demo-dont-deploy-b69315e440beb145&ids=BTC,ETH&interval=1h&convert=EUR
 
 they do some rate limiting, and I don't need it 1 second fresh, so I get them every 30 second, and cache the result.
