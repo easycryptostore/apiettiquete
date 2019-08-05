@@ -2,11 +2,9 @@ package main
 
 import (
 	"apiettiquete/config"
-	"encoding/json"
 	"net/http"
 
 	"github.com/gin-gonic/gin"
-	log "github.com/sirupsen/logrus"
 )
 
 // CachedHandler ...
@@ -31,14 +29,7 @@ func CachedUSD(c *gin.Context) {
 
 	response := item.Value().([]byte)
 
-	var raw []map[string]string
-	err := json.Unmarshal(response, &raw)
-	if err == nil {
-		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
-		return
-	}
-
-	c.JSON(http.StatusOK, raw)
+	c.Data(200, "application/json; charset=utf-8", response)
 
 }
 
